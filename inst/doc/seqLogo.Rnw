@@ -1,0 +1,219 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{epsfig,graphicx,graphics,amssymb,amsmath,latexsym,amsfonts,url,fullpage}
+\usepackage[authoryear,round]{natbib}
+\usepackage[plainpages=false,pdfpagelabels]{hyperref}
+
+%\usepackage{/usr/lib/R/share/texmf/Sweave}
+\usepackage[noblocks]{authblk}
+ 
+% instead of Sweave library
+\RequirePackage[T1]{fontenc}
+\RequirePackage{graphicx,ae,fancyvrb}
+\IfFileExists{upquote.sty}{\RequirePackage{upquote}}{}
+\setkeys{Gin}{width=0.8\textwidth}
+\DefineVerbatimEnvironment{Sinput}{Verbatim}{fontshape=sl}
+\DefineVerbatimEnvironment{Soutput}{Verbatim}{}
+\DefineVerbatimEnvironment{Scode}{Verbatim}{fontshape=sl}
+\newenvironment{Schunk}{}{} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% For colors
+
+\usepackage{color}
+\definecolor{red}{rgb}{1, 0, 0}
+\definecolor{green}{rgb}{0, 1, 0}
+\definecolor{blue}{rgb}{0, 0, 1}
+\definecolor{myblue}{rgb}{0.25, 0, 0.75}
+\definecolor{myred}{rgb}{0.75, 0, 0}
+\definecolor{gray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{purple}{rgb}{0.65, 0, 0.75}
+\definecolor{orange}{rgb}{1, 0.65, 0}
+
+
+
+
+\title{Sequence logos for DNA sequence alignments}
+
+\author{Oliver Bembom\\
+  Division of Biostatistics, University of California, Berkeley}
+
+
+\date{\today}
+
+% \VignetteIndexEntry{Sequence logos for DNA sequence alignments}
+% \VignetteDepends{}
+% \VignetteKeyword{position weight matrix}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Introduction}
+
+An alignment of DNA or amino acid sequences is commonly represented in
+the form of a position weight matrix (PWM), a $J \times W$ matrix in
+which position $(j,w)$ gives the probability of observing nucleotide
+$j$ in position $w$ of an alignment of length $W$. Here $J$ denotes the
+number of letters in the alphabet from which the sequences were derived.
+An important summary measure of a given position weight matrix is its
+information content profile \citep{Schneider86}.  The information
+content at position $w$ of the motif is given by
+\[
+IC(w) = \log_2(J) + \sum_{j=1}^J p_{wj}\log_2(p_{wj}) = \log_2(J) - entropy(w).
+\]
+The information content is measured in bits and, in the case of DNA
+sequences, ranges from 0 to 2 bits.  A position in the motif at which
+all nucleotides occur with equal probability has an information
+content of 0 bits, while a position at which only a single nucleotide
+can occur has an information content of 2 bits.  The information
+content at a given position can therefore be thought of as giving a
+measure of the tolerance for substitutions in that position: Positions
+that are highly conserved and thus have a low tolerance for
+substitutions correspond to high information content, while positions
+with a high tolerance for substitutions correspond to low information
+content.
+
+Sequence logos are a graphical representation of sequence alignments
+developed by \cite{Schneider90}. Each logo consists of stacks of symbols,
+one stack for each position in the sequence. The overall height of the
+stack is proportional to the information content at that position,
+while the height of symbols within the stack indicates the relative
+frequency of each amino or nucleic acid at that position. In general,
+a sequence logo provides a richer and more precise description of, for
+example, a binding site, than would a consensus sequence.
+
+\section{Software implementation}
+
+The \texttt{seqLogo} package provides an R implementation for plotting
+such sequence logos for alignments consisting of DNA sequences. Before
+being able to access this functionality, the user is required to load
+the package using the \texttt{library()} command:     
+
+<<load, echo=TRUE>>=
+library(seqLogo) 
+@ 
+
+\subsection{The \texttt{pwm} class}
+
+The \texttt{seqLogo} package defines the class \texttt{pwm} which can
+be used to represent position weight matrices. An instance of this
+class can be constructed from a simple matrix or a data frame using the 
+function \texttt{makePWM()}:
+<<makePWM>>=   
+mFile <- system.file("Exfiles/pwm1", package="seqLogo")
+m <- read.table(mFile)
+m
+p <- makePWM(m)
+@ 
+\texttt{makePWM()} checks that all column probabilities add up to 1.0
+and also obtains the information content profile and consensus sequence
+for the position weight matrix. These can then be accessed through the
+corresponding slots of the created object:
+<<slots>>=
+slotNames(p)
+p@pwm
+p@ic
+p@consensus
+@ 
+
+\subsection{Plotting sequence logos}
+
+The \texttt{seqLogo()} function plots sequence logos.\\
+
+\noindent\textbf{INPUT.}
+<<cosmoArgs, echo=TRUE>>=
+args(seqLogo)
+@ 
+
+\begin{enumerate}
+\item
+  The position weight matrix for which the sequence logo is to be plotted, 
+  \texttt{pwm}. This may be either an instance of class \texttt{pwm},
+  as defined by the package \texttt{seqLogo}, a \texttt{matrix}, or a
+  \texttt{data.frame}.  
+
+\item
+  A \texttt{logical} \texttt{ic.scale} indicating whether the height
+  of each column is to be proportional to its information content, as
+  originally proposed by \cite{Schneider86}. If \texttt{ic.scale=FALSE},
+  all columns have the same height.
+\end{enumerate}
+
+\noindent\textbf{EXAMPLE.}\\
+
+\noindent The call \texttt{seqLogo(p)} produces the sequence logo shown in
+figure \ref{fig.logo1}. Alternatively, we can use \texttt{seqLogo(p,
+ic.scale=FALSE)} to obtain the sequence logo shown in figure
+\ref{fig.logo2} in which all columns have the same height.
+  
+\begin{figure}
+\begin{center}
+\caption{Sequence logo with column heights proportional to information content. \label{fig.logo1}}
+<<seqLogo1, fig=TRUE, echo=FALSE, height=4, width=6>>=
+seqLogo(p)
+@ 
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\caption{Sequence logo with uniform column heights. \label{fig.logo2}}
+<<seqLogo2, fig=TRUE, echo=FALSE, height=4, width=6>>=
+seqLogo(p, ic.scale=FALSE)
+@ 
+\end{center}
+\end{figure}
+
+\subsection{Software Design}
+
+The following features of the programming approach employed in
+\texttt{seqLogo} may be of interest to users. \\
+
+
+{\bf Class/method object-oriented programming}. Like many other
+Bioconductor packages, \texttt{seqLogo} has adopted the \textit{S4
+class/method objected-oriented programming approach} presented in
+\cite{Chambers}. In particular, a new class, \texttt{pwm}, is
+defined to represent a position weight matrix. The plot method for
+this class is set to produce the sequence logo corresponding to this
+class. \\
+
+{\bf Use of the \texttt{grid} package}. The \texttt{grid} package is
+used to draw the sequence letters from graphical primitives. We note
+that this should make it easy to extend the package to amino acid
+sequences. 
+
+
+\begin{thebibliography}{1}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+
+\bibitem[Chambers (1998)]{Chambers}
+J.M. Chambers
+\newblock {\em Programming with Data: A Guide to the S Language}.
+\newblock Springer Verlag, New York, 1998.
+
+\bibitem[Schneider et~al.(1986)Schneider, Stormo, Gold, and
+  Ehrenfeucht]{Schneider86}
+T.~D. Schneider, G.~D. Stormo, L.~Gold, and A.~Ehrenfeucht.
+\newblock Information content of binding sites on nucleotide sequences.
+\newblock {\em Journal of Molecular Biology}, 188:\penalty0 415--431, 1986.
+
+\bibitem[Schneider and Stephens(1990)Schneider, Stormo, Gold, and
+  Ehrenfeucht]{Schneider90}
+T.~D. Schneider, and R.~R. Stephens.
+\newblock Sequence Logos: A New Way to Display Consensus Sequences
+\newblock {\em Nucleic Acid Research}, 18:\penalty0 6097--6100, 1990.
+
+
+\end{thebibliography}
+
+
+\end{document}
+ 
+ 
+ 
+ 
