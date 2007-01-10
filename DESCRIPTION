@@ -11,4 +11,3 @@ Collate:  AllClasses.R AllGenerics.R pwm.R seqLogo.R zzz.R
 License: LGPL version 2 or newer
 LazyLoad: yes
 biocViews: SequenceMatching
-Packaged: Mon Jan  8 19:29:12 2007; hpages
