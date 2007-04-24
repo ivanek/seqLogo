@@ -1,6 +1,6 @@
 Package: seqLogo
 Title: Sequence logos for DNA sequence alignments
-Version: 1.2.0
+Version: 1.3.0
 Author: Oliver Bembom
 Description: seqLogo takes the position weight matrix of a DNA
 	sequence motif and plots the corresponding sequence logo as
