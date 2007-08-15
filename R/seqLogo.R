@@ -183,7 +183,7 @@ addLetter <- function(letters,which,x.pos,y.pos,ht,wt){
 
 
 ## plot a sequence logo
-seqLogo <- function(pwm, ic.scale=TRUE){
+seqLogo <- function(pwm, ic.scale=TRUE, xaxis=TRUE, yaxis=TRUE, xfontsize=15, yfontsize=15){
 
   if (class(pwm) == "pwm"){
     pwm <- pwm@pwm    
@@ -231,15 +231,21 @@ seqLogo <- function(pwm, ic.scale=TRUE){
   }
 
   grid.newpage()
-  pushViewport(plotViewport(c(5,4,2,2)))
+  bottomMargin = ifelse(xaxis, 2 + xfontsize/3.5, 2)
+  leftMargin = ifelse(yaxis, 2 + yfontsize/3.5, 2)
+  pushViewport(plotViewport(c(bottomMargin,leftMargin,2,2)))
   pushViewport(dataViewport(0:ncol(pwm),0:ylim,name="vp1"))
   grid.polygon(x=unit(letters$x,"native"), y=unit(letters$y,"native"),
                id=letters$id,
                gp=gpar(fill=letters$fill,col="transparent"))
-  grid.xaxis(at=seq(0.5,ncol(pwm)-0.5),label=1:ncol(pwm))
-  grid.yaxis()
-  grid.text(ylab,x=unit(-3,"lines"),rot=90)
-  grid.text("Position",y=unit(-3,"lines"))
+  if (xaxis){
+    grid.xaxis(at=seq(0.5,ncol(pwm)-0.5),label=1:ncol(pwm), gp=gpar(fontsize=xfontsize))
+    grid.text("Position",y=unit(-3,"lines"), gp=gpar(fontsize=xfontsize))
+  }
+  if (yaxis){
+    grid.yaxis(gp=gpar(fontsize=yfontsize))
+    grid.text(ylab,x=unit(-3,"lines"),rot=90, gp=gpar(fontsize=yfontsize))
+  }
   popViewport()
   popViewport()
   par(ask=FALSE)

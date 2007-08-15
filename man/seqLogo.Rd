@@ -6,13 +6,17 @@
   motif and plots the corresponding sequence logo. 
 }
 \usage{
-  seqLogo(pwm, ic.scale=TRUE)
+  seqLogo(pwm, ic.scale=TRUE, xaxis=TRUE, yaxis=TRUE, xfontsize=15, yfontsize=15)
 }
 \arguments{
   \item{pwm}{\code{numeric} The 4xW position weight matrix.}
   \item{ic.scale}{\code{logical} If TRUE, the height of each column is
     proportional to its information content. Otherwise, all columns have
     the same height.}
+  \item{xaxis}{\code{logical} If TRUE, an X-axis will be plotted.}
+  \item{yaxis}{\code{logical} If TRUE, a Y-axis will be plotted.}
+  \item{xfontsize}{\code{numeric} Font size to be used for the X-axis.}
+  \item{yfontsize}{\code{numeric} Font size to be used for the Y-axis.} 
 }
 \details{
   Within each column, the height
