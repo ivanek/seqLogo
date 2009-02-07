@@ -27,6 +27,7 @@
   }
 }
 \section{Methods}{
+ \describe{
   \item{summary}{\code{signature(object = "pwm",...)} Prints the
     position weight matrix. }
 
@@ -38,7 +39,7 @@
 
   \item{plot}{\code{signature(x = "pwm")} Plots the
     sequence logo of the position weight matrix. }
-  
+ } 
 }
 \references{}
 \author{Oliver Bembom, \email{bembom@berkeley.edu}}
