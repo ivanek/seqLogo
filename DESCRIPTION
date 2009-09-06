@@ -1,6 +1,6 @@
 Package: seqLogo
 Title: Sequence logos for DNA sequence alignments
-Version: 1.11.0
+Version: 1.11.1
 Author: Oliver Bembom
 Description: seqLogo takes the position weight matrix of a DNA
 	sequence motif and plots the corresponding sequence logo as
@@ -8,6 +8,6 @@ Description: seqLogo takes the position weight matrix of a DNA
 Maintainer: Oliver Bembom <oliver.bembom@gmail.com>	
 Depends: methods, grid
 Collate:  AllClasses.R AllGenerics.R pwm.R seqLogo.R zzz.R
-License: LGPL version 2 or newer
+License: LGPL (>= 2)
 LazyLoad: yes
 biocViews: SequenceMatching
