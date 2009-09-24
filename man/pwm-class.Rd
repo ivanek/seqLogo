@@ -19,7 +19,9 @@
 }
 \section{Slots}{
   \describe{
-    \item{\code{pwm}:}{Object of class \code{"matrix"} The position
+    \item{\code{consensus}}{Object of class\code{"character"}}
+    \item{\code{ic}}{Object of class \code{"numeric"} }
+    \item{\code{pwm}}{Object of class \code{"matrix"} The position
       weight matrix.}
     \item{\code{width}:}{\code{"numeric"} The width of the motif.}
     \item{\code{alphabet}:}{\code{"character"} The sequence
