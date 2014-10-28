@@ -1,11 +1,12 @@
 Package: seqLogo
 Title: Sequence logos for DNA sequence alignments
-Version: 1.33.0
+Version: 1.33.1
 Author: Oliver Bembom
 Description: seqLogo takes the position weight matrix of a DNA
 	sequence motif and plots the corresponding sequence logo as
 	introduced by Schneider and Stephens (1990). 
 Maintainer: Oliver Bembom <oliver.bembom@gmail.com>	
+Imports: stats4
 Depends: methods, grid
 Collate:  AllClasses.R AllGenerics.R pwm.R seqLogo.R zzz.R
 License: LGPL (>= 2)

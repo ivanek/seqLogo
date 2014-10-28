@@ -1,3 +1,4 @@
+import(stats4)
 import(methods, grid)
 importFrom(graphics, plot)
 export(seqLogo, makePWM)
