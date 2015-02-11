@@ -14,15 +14,11 @@ makePWM(pwm, alphabet="DNA")
   \item{alphabet}{\code{character} the alphabet making up the
     sequence. Currently, only "DNA" is supported. }
 }
-\details{
-}
 \value{
   An object of class pwm.
 }
 \author{
 Oliver Bembom, \email{bembom@berkeley.edu}
-}
-\seealso{
 }
 \examples{
 mFile <- system.file("Exfiles/pwm1", package="seqLogo")

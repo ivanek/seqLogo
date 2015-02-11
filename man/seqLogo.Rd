@@ -29,11 +29,8 @@
 \value{
   None.
 }
-\references{}
 \author{Oliver Bembom, \email{bembom@berkeley.edu}}
-\note{}
 
-\seealso{}
 \examples{
 mFile <- system.file("Exfiles/pwm1", package="seqLogo")
 m <- read.table(mFile)

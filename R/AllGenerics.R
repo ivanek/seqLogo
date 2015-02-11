@@ -11,10 +11,6 @@ setMethod("summary", signature(object="pwm"), function(object,...){
   print(object@consensus)
 })
 
-setMethod("print", signature(x="pwm"), function(x,...){
-  print(round(x@pwm,4))
-})
-
 setMethod("show", "pwm", function(object){
-  show(round(object@pwm,4))
+  print(round(object@pwm,4))
 })

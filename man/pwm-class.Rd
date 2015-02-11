@@ -4,7 +4,7 @@
 \alias{summary,pwm-method}
 \alias{print,pwm-method}
 \alias{show,pwm-method}
-\alias{plot,pwm-method}
+\alias{plot,pwm,ANY-method}
 
 \title{Class "pwm"}
 \description{
@@ -43,14 +43,6 @@
     sequence logo of the position weight matrix. }
  } 
 }
-\references{}
 \author{Oliver Bembom, \email{bembom@berkeley.edu}}
 
-\note{}
-
-
-\seealso{
-}
-\examples{
-}
 \keyword{classes}
