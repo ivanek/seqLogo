@@ -185,11 +185,11 @@ addLetter <- function(letters,which,x.pos,y.pos,ht,wt){
 ## plot a sequence logo
 seqLogo <- function(pwm, ic.scale=TRUE, xaxis=TRUE, yaxis=TRUE, xfontsize=15, yfontsize=15){
 
-  if (class(pwm) == "pwm"){
+  if (is(pwm, "pwm")){
     pwm <- pwm@pwm    
-  }else if (class(pwm) == "data.frame"){
+  }else if (is.data.frame(pwm)){
     pwm <- as.matrix(pwm)
-  }else if (class(pwm) != "matrix"){
+  }else if (!is.matrix(pwm)){
     stop("pwm must be of class matrix or data.frame")
   }
 

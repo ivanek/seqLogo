@@ -41,7 +41,7 @@ pwm2ic<-function(pwm) {
 
 ## get consensus sequence from PWM
 pwm2cons<-function(pwm) {
-    if (class(pwm)!="matrix") {warning("pwm argument must be of class matrix")}
+    if (!is.matrix(pwm)) {warning("pwm argument must be of class matrix")}
     letters <- c("A", "C", "G", "T")
     paste(apply(pwm, 2, function(x){letters[rev(order(x))[1]]}), collapse="")
 }
