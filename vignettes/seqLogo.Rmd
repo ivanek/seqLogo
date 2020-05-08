@@ -1,0 +1,204 @@
+---
+title: "Sequence logos for DNA sequence alignments"
+bibliography: seqLogo-refs.bib
+author: 
+  - name: "Oliver Bembom"
+    affiliation:
+    - Division of Biostatistics, University of California, Berkeley
+  - name: "Robert Ivánek"
+    affiliation: 
+    - Department of Biomedicine, University of Basel, Basel, Switzerland
+    - Swiss Institute of Bioinformatics, Basel, Switzerland
+    email: robert.ivanek@unibas.ch
+package: "`r BiocStyle::pkg_ver('seqLogo')`"
+output:
+  BiocStyle::html_document:
+    toc_float: true
+  BiocStyle::pdf_document: 
+    default
+vignette: >
+    %\VignetteIndexEntry{Sequence logos for DNA sequence alignments}
+    %\VignetteKeywords{visualization, position weight matrix, grid}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+editor_options:
+  chunk_output_type: 
+    console
+---
+
+__Last edited__: 08 May 2020
+
+```{r init, echo=FALSE, results='hide'}
+## crop=NULL or FALSE =>  fix vignette rendering based on yihui/knitr#1796
+## added also error=FALSE to include_graphics
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  tidy = FALSE,
+  ## comment = "#>",
+  error = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  crop = NULL                           
+)
+
+## check the output type
+out_type <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+if (is.null(out_type))
+    out_type <- "html"
+
+## add styling
+if (out_type == "html") {
+    BiocStyle::markdown()
+    ## BiocStyle::markdown(css.files = c('custom.css'))
+} else if (out_type == "latex") {
+    BiocStyle::latex()
+}
+```
+
+# Introduction
+
+An alignment of DNA or amino acid sequences is commonly represented in
+the form of a position weight matrix (PWM), a $J \times W$ matrix in
+which position $(j,w)$ gives the probability of observing nucleotide
+$j$ in position $w$ of an alignment of length $W$. Here $J$ denotes the
+number of letters in the alphabet from which the sequences were derived.
+An important summary measure of a given position weight matrix is its
+information content profile [@Schneider1986].  The information
+content at position $w$ of the motif is given by
+
+$$
+IC(w) = \log_2(J) + \sum_{j=1}^J p_{wj}\log_2(p_{wj}) = \log_2(J) - entropy(w).
+$$ 
+
+The information content is measured in bits and, in the case of DNA
+sequences, ranges from 0 to 2 bits.  A position in the motif at which
+all nucleotides occur with equal probability has an information
+content of 0 bits, while a position at which only a single nucleotide
+can occur has an information content of 2 bits.  The information
+content at a given position can therefore be thought of as giving a
+measure of the tolerance for substitutions in that position: Positions
+that are highly conserved and thus have a low tolerance for
+substitutions correspond to high information content, while positions
+with a high tolerance for substitutions correspond to low information
+content.
+
+Sequence logos are a graphical representation of sequence alignments
+developed by [@Schneider1990]. Each logo consists of stacks of symbols,
+one stack for each position in the sequence. The overall height of the
+stack is proportional to the information content at that position,
+while the height of symbols within the stack indicates the relative
+frequency of each amino or nucleic acid at that position. In general,
+a sequence logo provides a richer and more precise description of, for
+example, a binding site, than would a consensus sequence.
+
+# Software implementation
+
+The `r Biocpkg("seqLogo")` package provides an R implementation for plotting
+such sequence logos for alignments consisting of DNA sequences. Before
+being able to access this functionality, the user is required to load
+the package using the `library()` command:     
+
+```{r library}
+library(seqLogo) 
+```
+
+## The `pwm-class`
+
+The `r Biocpkg("seqLogo")` package defines the class `pwm` which can
+be used to represent position weight matrices. An instance of this
+class can be constructed from a simple matrix or a data frame using the 
+function `makePWM()`:
+
+```{r makePWM}
+mFile <- system.file("extdata/pwm1", package="seqLogo")
+m <- read.table(mFile)
+m
+p <- makePWM(m)
+```
+
+`makePWM()` checks that all column probabilities add up to 1.0
+and also obtains the information content profile and consensus sequence
+for the position weight matrix. These can then be accessed through the
+corresponding slots of the created object:
+
+```{r slots}
+slotNames(p)
+pwm(p)
+ic(p)
+consensus(p)
+```
+
+## Plotting sequence logos
+
+The `seqLogo()` function plots sequence logos.
+
+### Input
+
+ 1. The position weight matrix for which the sequence logo is to be plotted, 
+    `pwm`. This may be either an instance of class `pwm`, as defined by the 
+    package `r Biocpkg("seqLogo")`, a `matrix`, or a `data.frame`.  
+
+ 2. A `logical` `ic.scale` indicating whether the height
+    of each column is to be proportional to its information content, as
+    originally proposed by [@Schneider1986]. If `ic.scale=FALSE`,
+    all columns have the same height.
+
+### Example
+
+The call `seqLogo(p)` produces the sequence logo shown in figure 
+\@ref(seqlogo1). Alternatively, we can use `seqLogo(p, ic.scale=FALSE)` 
+to obtain the sequence logo shown in figure \@ref(seqlogo2) in which 
+all columns have the same height.
+  
+```{r seqLogo1, fig.height=4, fig.width=6, fig.cap="Sequence logo with column heights proportional to information content."}
+seqLogo(p)
+```
+
+```{r seqLogo2, fig.height=4, fig.width=6, fig.cap="Sequence logo with uniform column heights."}
+seqLogo(p, ic.scale=FALSE)
+```
+
+It is also possible to change the default colors by providing a named character 
+vector as a `fill` argument `seqLogo` function. 
+
+```{r seqLogo3, fig.height=4, fig.width=6, fig.cap="Sequence logo with user specified colors."}
+seqLogo(p, fill=c(A="#4daf4a", C="#377eb8", G="#ffd92f", T="#e41a1c"),
+        ic.scale=FALSE)
+```
+
+The RNA logos are supported as well. In this particular case, the `seqLogo` 
+will either accept `fill` colors specified for `c("A", "C", "G", "U")` letters 
+or `c("A", "C", "G", "T")` and uses the color specified in element "T" 
+for letter "U".
+
+```{r seqLogo4, fig.height=4, fig.width=6, fig.cap="Sequence logo with user specified colors."}
+r <- makePWM(m, alphabet="RNA")
+seqLogo(r, ic.scale=FALSE)
+```
+
+
+## Software Design
+
+The following features of the programming approach employed in
+`r Biocpkg("seqLogo")` may be of interest to users. 
+
+__Class/method object-oriented programming__. Like many other Bioconductor 
+packages, `r Biocpkg("seqLogo")` has adopted the 
+_S4 class/method objected-oriented programming approach_ presented in
+[@Chambers1998]. In particular, a new class, `pwm`, is defined to represent 
+a position weight matrix. The plot method for this class is set to produce 
+the sequence logo corresponding to this class.
+
+__Use of the `r CRANpkg("grid")` package__. The `r CRANpkg("grid")` package is
+used to draw the sequence letters from graphical primitives. We note that this 
+should make it easy to extend the package to amino acid sequences. 
+
+# SessionInfo
+
+The following is the session info that generated this vignette:
+
+```{r session-info}
+sessionInfo()
+```
+
+# References

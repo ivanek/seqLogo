@@ -1,0 +1,18 @@
+CHANGES IN VERSION 1.55.2
+-------------------------
+
+NEW FEATURES
+
+    o Added accessor function to access pwm, ic and consensus
+    o Added possibility to specify colors (by setting fill)
+    o Added support for RNA logos
+
+
+CHANGES IN VERSION 1.55.2
+-------------------------
+
+BUG FIXES
+
+    o Replaced `class` statements with `is(..., "class")`
+    
+
