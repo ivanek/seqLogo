@@ -16,7 +16,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Imports: 
     stats4, 
-    graphics, 
     grDevices
 Depends: 
     methods, 
