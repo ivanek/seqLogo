@@ -1,0 +1,12 @@
+^\.Rhistory$
+^\.Rprofile$
+^\.RData$
+^\.Ruserdata$
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.Rbuildignore$
+^\.gitignore$
+^\.travis\.yml$
+^\.codecov\.yml$
+^Dockerfile$
+^Rplots\.pdf$
