@@ -1,16 +1,14 @@
-setMethod("plot", signature(x="pwm"), function(x, y="missing",...) {
-  seqLogo(x)
-})
+setGeneric("pwm", function(pwm) standardGeneric("pwm"))
 
-setMethod("summary", signature(object="pwm"), function(object,...){
-  cat("Position weight matrix:\n")
-  print(round(object@pwm,4))
-  cat("\n\nInformation content:\n")
-  print(round(object@ic,4))
-  cat("\n\nConsensus sequence:\n")
-  print(object@consensus)
-})
+setGeneric("ic", function(pwm) standardGeneric("ic"))
 
-setMethod("show", "pwm", function(object){
-  print(round(object@pwm,4))
-})
+setGeneric("consensus", function(pwm) standardGeneric("consensus"))
+
+# setGeneric("alphabet", function(pwm) standardGeneric("alphabet"))
+
+# setGeneric("seqLogo", signature(pwm="pwm"),
+#            function(x, ic.scale=TRUE, xaxis=TRUE, yaxis=TRUE,
+#                     xfontsize=15, yfontsize=15,
+#                     fill=c(A="#61D04F", C="#2297E6", G="#F5C710", T="#DF536B"))
+#              standardGeneric("seqLogo")
+# )
