@@ -171,7 +171,7 @@ will either accept `fill` colors specified for `c("A", "C", "G", "U")` letters
 or `c("A", "C", "G", "T")` and uses the color specified in element "T" 
 for letter "U".
 
-```{r seqLogo4, fig.height=4, fig.width=6, fig.cap="Sequence logo with user specified colors."}
+```{r seqLogo4, fig.height=4, fig.width=6, fig.cap="RNA Sequence logo."}
 r <- makePWM(m, alphabet="RNA")
 seqLogo(r, ic.scale=FALSE)
 ```
@@ -189,9 +189,9 @@ _S4 class/method objected-oriented programming approach_ presented in
 a position weight matrix. The plot method for this class is set to produce 
 the sequence logo corresponding to this class.
 
-__Use of the `r CRANpkg("grid")` package__. The `r CRANpkg("grid")` package is
-used to draw the sequence letters from graphical primitives. We note that this 
-should make it easy to extend the package to amino acid sequences. 
+__Use of the `grid` package__. The `grid` package is used to draw the sequence 
+letters from graphical primitives. We note that this should make it easy 
+to extend the package to amino acid sequences. 
 
 # SessionInfo
 

@@ -59,7 +59,7 @@ remotes::install_github("ivanek/seqLogo")
 ## Usage
 
 For detailed instructions check the package vignette 
-([release](https://bioconductor.org/packages/release/bioc/vignettes/seqLogo/inst/doc/seqLogo.html) 
+([release](https://bioconductor.org/packages/release/bioc/vignettes/seqLogo/inst/doc/seqLogo.pdf) 
 or 
 [developmental](https://bioconductor.org/packages/devel/bioc/vignettes/seqLogo/inst/doc/seqLogo.html) 
 version).
