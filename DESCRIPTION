@@ -1,6 +1,6 @@
 Package: seqLogo
 Title: Sequence logos for DNA sequence alignments
-Version: 1.54.2
+Version: 1.54.3
 Authors@R: 
     c(person(given="Oliver", family="Bembom", 
              role = c("aut"), email = "oliver.bembom@gmail.com"),
@@ -10,7 +10,6 @@ Authors@R:
 Description: seqLogo takes the position weight matrix of a DNA
 	sequence motif and plots the corresponding sequence logo as
 	introduced by Schneider and Stephens (1990). 
-Maintainer: Oliver Bembom <oliver.bembom@gmail.com>	
 Imports: stats4
 Depends: methods, grid
 Collate:  AllClasses.R AllGenerics.R pwm.R seqLogo.R
