@@ -1,3 +1,5 @@
+<img src="vignettes/seqLogo-logo.png" align="right" alt="" width="120" />
+
 # _seqLogo_ - Plotting the position weight matrix of a DNA/RNA sequence motif as a sequence logo
 
 ## Software status
