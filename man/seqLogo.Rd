@@ -5,7 +5,7 @@
 \title{Plot a sequence logo for a given position weight matrix}
 \usage{
 seqLogo(pwm, ic.scale=TRUE, xaxis=TRUE, yaxis=TRUE, xfontsize=15, yfontsize=15,
-        fill=c(A="#61D04F", C="#2297E6", G="#F5C710", T="#DF536B"))
+        fill=c(A='#61D04F', C='#2297E6', G='#F5C710', T='#DF536B'))
 }
 \arguments{
 \item{pwm}{numeric. The alphabet*width position weight matrix.}
@@ -22,12 +22,15 @@ seqLogo(pwm, ic.scale=TRUE, xaxis=TRUE, yaxis=TRUE, xfontsize=15, yfontsize=15,
 
 \item{fill}{character. Fill color to be used for the letters. Must be a named character vector of length equal to number of rows in \code{pwm} slot and names identical to its rownames.}
 }
+\value{
+NULL.
+}
 \description{
 This function takes the alphabet*width position weight matrix of
 a sequence motif and plots the corresponding sequence logo.
 }
 \examples{
-mFile <- system.file("extdata/pwm1", package="seqLogo")
+mFile <- system.file('extdata/pwm1', package='seqLogo')
 m <- read.table(mFile)
 p <- makePWM(m)
 seqLogo(p)

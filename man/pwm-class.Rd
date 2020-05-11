@@ -17,7 +17,7 @@
 \usage{
 \S4method{show}{pwm}(object)
 
-\S4method{summary}{pwm}(object)
+\S4method{summary}{pwm}(object, ...)
 
 \S4method{plot}{pwm,ANY}(x, y = "missing", ...)
 
@@ -30,19 +30,22 @@
 \arguments{
 \item{object}{object of \code{pwm-class}}
 
+\item{...}{additional parameters for \code{plot} function}
+
 \item{x}{object of \code{pwm-class}}
 
 \item{y}{default (missing) for \code{plot} function}
 
-\item{...}{additional parameters for \code{plot} function}
-
 \item{pwm}{object of \code{pwm-class}}
 }
+\value{
+\code{pwm-class} object with slots: \code{pwm}, \code{width}, \code{ic} and \code{alphabet}.
+}
 \description{
-An object of class \code{"pwm"} represents the alphabet*width
+An object of class \code{'pwm'} represents the alphabet*width
 position weight matrix of a sequence motif. In case of DNA sequence motif,
 the entry in row i, column j gives the probability of observing nucleotide
-\code{c("A","C","G","T")[i]} in position j of the motif.
+\code{c('A','C','G','T')[i]} in position j of the motif.
 }
 \section{Functions}{
 \itemize{
@@ -53,11 +56,11 @@ matrix.
 
 \item \code{plot,pwm,ANY-method}: Plots the sequence logo of the position weight matrix.
 
-\item \code{pwm,pwm-method}: Access to "pwm" slot
+\item \code{pwm,pwm-method}: Access to 'pwm' slot
 
-\item \code{ic,pwm-method}: Access to "ic" slot
+\item \code{ic,pwm-method}: Access to 'ic' slot
 
-\item \code{consensus,pwm-method}: Access to "consensus" slot
+\item \code{consensus,pwm-method}: Access to 'consensus' slot
 }}
 
 \section{Slots}{
@@ -69,14 +72,14 @@ matrix.
 
 \item{\code{ic}}{numeric. The information content (IC).}
 
-\item{\code{alphabet}}{character. The sequence alphabet. Currently, only "DNA" and
-"RNA" is supported.}
+\item{\code{alphabet}}{character. The sequence alphabet. Currently, only 'DNA' and
+'RNA' is supported.}
 
 \item{\code{consensus}}{character. The consensus sequence.}
 }}
 
 \examples{
-mFile <- system.file("extdata/pwm1", package="seqLogo")
+mFile <- system.file('extdata/pwm1', package='seqLogo')
 m <- read.table(mFile)
 p <- makePWM(m)
 #
