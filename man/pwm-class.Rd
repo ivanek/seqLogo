@@ -79,7 +79,7 @@ matrix.
 }}
 
 \examples{
-mFile <- system.file('extdata/pwm1', package='seqLogo')
+mFile <- system.file("extdata/pwm1", package = "seqLogo")
 m <- read.table(mFile)
 p <- makePWM(m)
 #
@@ -87,7 +87,6 @@ p <- makePWM(m)
 pwm(p)
 ic(p)
 consensus(p)
-
 }
 \author{
 Oliver Bembom

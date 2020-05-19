@@ -16,45 +16,51 @@
 #' @import stats4
 #'
 #' @examples
-#' mFile <- system.file('extdata/pwm1', package='seqLogo')
+#' mFile <- system.file("extdata/pwm1", package = "seqLogo")
 #' m <- read.table(mFile)
 #' pwm <- makePWM(m)
-#'
 #' @export
 makePWM <- function(pwm, alphabet = "DNA") {
-    
-    if (is.data.frame(pwm)) 
-        pwm <- as.matrix(pwm)
-    if (!is.matrix(pwm)) 
-        stop("pwm must be a matrix or a dataframe")
-    
-    if (!alphabet %in% c("DNA", "RNA", "AA")) 
-        stop("alphabet must be either DNA, RNA or AA")
+    if (is.data.frame(pwm)) {
+          pwm <- as.matrix(pwm)
+      }
+    if (!is.matrix(pwm)) {
+          stop("pwm must be a matrix or a dataframe")
+      }
+
+    if (!alphabet %in% c("DNA", "RNA", "AA")) {
+          stop("alphabet must be either DNA, RNA or AA")
+      }
     if (alphabet == "DNA") {
-        if (nrow(pwm) != 4) 
-            stop("PWM for DNA motifs must have 4 rows")
+        if (nrow(pwm) != 4) {
+              stop("PWM for DNA motifs must have 4 rows")
+          }
         rownames(pwm) <- c("A", "C", "G", "T")
     } else if (alphabet == "RNA") {
-        if (nrow(pwm) != 4) 
-            stop("PWM for RNA motifs must have 4 rows")
+        if (nrow(pwm) != 4) {
+              stop("PWM for RNA motifs must have 4 rows")
+          }
         rownames(pwm) <- c("A", "C", "G", "U")
     } else if (alphabet == "AA") {
-        if (nrow(pwm) != 20) 
-            stop("PWM for amino acid motifs must have 20 rows")
-        rownames(pwm) <- c("A", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M", 
-            "N", "P", "Q", "R", "S", "T", "V", "W", "Y")
+        if (nrow(pwm) != 20) {
+              stop("PWM for amino acid motifs must have 20 rows")
+          }
+        rownames(pwm) <- c(
+            "A", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M",
+            "N", "P", "Q", "R", "S", "T", "V", "W", "Y"
+        )
     }
     if (any(abs(1 - apply(pwm, 2, sum)) > 0.01)) {
         print(apply(pwm, 2, sum))
         warning("Columns of PWM must add up to 1.0")
     }
-    
+
     width <- ncol(pwm)
     colnames(pwm) <- seq_len(width)
-    
+
     cons <- pwm2cons(pwm)
     ic <- pwm2ic(pwm)
-    
+
     new("pwm", pwm = pwm, consensus = cons, ic = ic, width = width, alphabet = alphabet)
 }
 ## class functions ------------------------------------------------------------

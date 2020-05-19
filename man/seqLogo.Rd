@@ -30,11 +30,10 @@ This function takes the alphabet*width position weight matrix of
 a sequence motif and plots the corresponding sequence logo.
 }
 \examples{
-mFile <- system.file('extdata/pwm1', package='seqLogo')
+mFile <- system.file("extdata/pwm1", package = "seqLogo")
 m <- read.table(mFile)
 p <- makePWM(m)
 seqLogo(p)
-
 }
 \author{
 Oliver Bembom

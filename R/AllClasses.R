@@ -23,7 +23,7 @@
 #' alphabet
 #'
 #' @examples
-#' mFile <- system.file('extdata/pwm1', package='seqLogo')
+#' mFile <- system.file("extdata/pwm1", package = "seqLogo")
 #' m <- read.table(mFile)
 #' p <- makePWM(m)
 #' #
@@ -31,7 +31,8 @@
 #' pwm(p)
 #' ic(p)
 #' consensus(p)
-#'
 #' @export
-setClass("pwm", representation(pwm = "matrix", width = "numeric", ic = "numeric", 
-    alphabet = "character", consensus = "character"))
+setClass("pwm", representation(
+    pwm = "matrix", width = "numeric", ic = "numeric",
+    alphabet = "character", consensus = "character"
+))

@@ -18,10 +18,9 @@ An object of class pwm.
 This function constructs an object of class pwm from a matrix. It checks that the matrix has correct dimensions and that columns add up to 1.0.
 }
 \examples{
-mFile <- system.file('extdata/pwm1', package='seqLogo')
+mFile <- system.file("extdata/pwm1", package = "seqLogo")
 m <- read.table(mFile)
 pwm <- makePWM(m)
-
 }
 \author{
 Oliver Bembom
