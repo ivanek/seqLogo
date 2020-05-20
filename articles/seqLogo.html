@@ -67,7 +67,7 @@
 
       
 
-      </header><script src="seqLogo_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Sequence logos for DNA sequence alignments</h1>
@@ -75,7 +75,7 @@
             <address class="author_afil">
       Division of Biostatistics, University of California, Berkeley<br><h4 class="author">Robert Ivánek</h4>
             <address class="author_afil">
-      Department of Biomedicine, University of Basel, Basel, SwitzerlandSwiss Institute of Bioinformatics, Basel, Switzerland<br><a class="author_email" href="mailto:#"></a><a href="mailto:robert.ivanek@unibas.ch" class="email">robert.ivanek@unibas.ch</a>
+      Department of Biomedicine, University of Basel, Basel, Switzerland<br><a class="author_email" href="mailto:#"></a><a href="mailto:robert.ivanek@unibas.ch" class="email">robert.ivanek@unibas.ch</a>
       </address>
                   
       
@@ -191,16 +191,20 @@ RNA Sequence logo.
 <a href="#sessioninfo" class="anchor"></a>SessionInfo</h1>
 <p>The following is the session info that generated this vignette:</p>
 <div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span>()
-<span class="co">## R version 4.0.0 Patched (2020-04-25 r78296)</span>
-<span class="co">## Platform: x86_64-apple-darwin19.4.0 (64-bit)</span>
-<span class="co">## Running under: macOS Catalina 10.15.4</span>
+<span class="co">## R version 4.0.0 (2020-04-24)</span>
+<span class="co">## Platform: x86_64-pc-linux-gnu (64-bit)</span>
+<span class="co">## Running under: Ubuntu 18.04.4 LTS</span>
 <span class="co">## </span>
 <span class="co">## Matrix products: default</span>
-<span class="co">## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib</span>
-<span class="co">## LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib</span>
+<span class="co">## BLAS/LAPACK: /usr/lib/x86_64-linux-gnu/libopenblasp-r0.2.20.so</span>
 <span class="co">## </span>
 <span class="co">## locale:</span>
-<span class="co">## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span>
+<span class="co">##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              </span>
+<span class="co">##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    </span>
+<span class="co">##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=C             </span>
+<span class="co">##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 </span>
+<span class="co">##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            </span>
+<span class="co">## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       </span>
 <span class="co">## </span>
 <span class="co">## attached base packages:</span>
 <span class="co">## [1] grid      stats     graphics  grDevices utils     datasets  methods  </span>
@@ -210,21 +214,21 @@ RNA Sequence logo.
 <span class="co">## [1] seqLogo_1.55.3   BiocStyle_2.17.0</span>
 <span class="co">## </span>
 <span class="co">## loaded via a namespace (and not attached):</span>
-<span class="co">##  [1] Rcpp_1.0.4.6        rstudioapi_0.11     knitr_1.28         </span>
-<span class="co">##  [4] magrittr_1.5        MASS_7.3-51.6       R6_2.4.1           </span>
-<span class="co">##  [7] rlang_0.4.6         highr_0.8           stringr_1.4.0      </span>
-<span class="co">## [10] tools_4.0.0         xfun_0.14           htmltools_0.4.0    </span>
-<span class="co">## [13] yaml_2.2.1          assertthat_0.2.1    digest_0.6.25      </span>
-<span class="co">## [16] rprojroot_1.3-2     pkgdown_1.5.1.9000  crayon_1.3.4       </span>
-<span class="co">## [19] bookdown_0.19       BiocManager_1.30.10 fs_1.4.1           </span>
-<span class="co">## [22] memoise_1.1.0       evaluate_0.14       rmarkdown_2.1      </span>
-<span class="co">## [25] stringi_1.4.6       compiler_4.0.0      desc_1.2.0         </span>
-<span class="co">## [28] backports_1.1.7     stats4_4.0.0</span></pre></body></html></div>
+<span class="co">##  [1] Rcpp_1.0.4.6        knitr_1.28          magrittr_1.5       </span>
+<span class="co">##  [4] MASS_7.3-51.5       R6_2.4.1            rlang_0.4.6        </span>
+<span class="co">##  [7] highr_0.8           stringr_1.4.0       tools_4.0.0        </span>
+<span class="co">## [10] xfun_0.13           htmltools_0.4.0     yaml_2.2.1         </span>
+<span class="co">## [13] assertthat_0.2.1    digest_0.6.25       rprojroot_1.3-2    </span>
+<span class="co">## [16] pkgdown_1.5.1       crayon_1.3.4        bookdown_0.19      </span>
+<span class="co">## [19] BiocManager_1.30.10 fs_1.4.1            memoise_1.1.0      </span>
+<span class="co">## [22] evaluate_0.14       rmarkdown_2.1       stringi_1.4.6      </span>
+<span class="co">## [25] compiler_4.0.0      desc_1.2.0          backports_1.1.7    </span>
+<span class="co">## [28] stats4_4.0.0</span></pre></body></html></div>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h1>
-<div id="refs" class="references hanging-indent">
+<div id="refs" class="references">
 <div id="ref-Chambers1998">
 <p>Chambers, John M. 1998. <em>Programming with Data: A Guide to the S Language</em>. Springer.</p>
 </div>
@@ -253,7 +257,7 @@ RNA Sequence logo.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
