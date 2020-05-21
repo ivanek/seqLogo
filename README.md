@@ -20,7 +20,7 @@
 | Bioc Status         | [![Bioconductor-release Build Status](https://bioconductor.org/shields/build/release/bioc/seqLogo.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/seqLogo) | [![Bioconductor-devel Build Status](https://bioconductor.org/shields/build/devel/bioc/seqLogo.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/seqLogo) |
 | GitHub Last Commit  | [![GitHub last commit (Bioconductor-release)](https://img.shields.io/github/last-commit/ivanek/seqLogo/RELEASE_3_11)](https://github.com/ivanek/seqLogo/tree/RELEASE_3_11) | [![GitHub last commit (Bioconductor-devel)](https://img.shields.io/github/last-commit/ivanek/seqLogo/master)](https://github.com/ivanek/seqLogo/tree/master/) |
 | Travis CI           | [![Build Status  (Bioconductor-release)](https://travis-ci.org/ivanek/seqLogo.svg?branch=RELEASE_3_11)](https://travis-ci.org/ivanek/seqLogo/branches) | [![Build Status (Bioconductor-devel)](https://travis-ci.org/ivanek/seqLogo.svg?branch=master)](https://travis-ci.org/ivanek/seqLogo) |
-| GitHub Actions      | [![R build status](https://github.com/ivanek/seqLogo/workflows/R-CMD-check/badge.svg?branch=RELEASE_3_11)](https://github.com/ivanek/seqLogo/actions) | [![R build status](https://github.com/ivanek/seqLogo/workflows/R-CMD-check/badge.svg?branch=master)](https://github.com/ivanek/seqLogo/actions) |
+| GitHub Actions      | [![R build status](https://github.com/ivanek/seqLogo/workflows/R-CMD-check-bioc/badge.svg?branch=RELEASE_3_11)](https://github.com/ivanek/seqLogo/actions) | [![R build status](https://github.com/ivanek/seqLogo/workflows/R-CMD-check-bioc/badge.svg?branch=master)](https://github.com/ivanek/seqLogo/actions) |
 | Coverage            | [![Codecov.io (Bioconductor-release)](https://codecov.io/github/ivanek/seqLogo/coverage.svg?branch=RELEASE_3_11)](https://codecov.io/gh/ivanek/seqLogo/branch/RELEASE_3_11) | [![Codecov.io (Bioconductor-devel)](https://codecov.io/github/ivanek/seqLogo/coverage.svg?branch=master)](https://codecov.io/github/ivanek/seqLogo) |
 
 ## Authors
@@ -65,7 +65,7 @@ For detailed instructions check the package vignette
 ([release](https://bioconductor.org/packages/release/bioc/vignettes/seqLogo/inst/doc/seqLogo.pdf) 
 or 
 [developmental](https://bioconductor.org/packages/devel/bioc/vignettes/seqLogo/inst/doc/seqLogo.html) 
-version).
+version). Or the GitHub.io [page](https://ivanek.github.io/seqLogo/).
 
 ## Citation 
 
