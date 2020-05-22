@@ -11,3 +11,5 @@
 ^\.codecov\.yml$
 ^Dockerfile$
 ^Rplots\.pdf$
+^vignettes\/seqLogo-logo.pdf\.svg$
+^vignettes\/seqLogo-logo.pdf\.pdf$
