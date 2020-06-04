@@ -69,6 +69,8 @@ makePWM <- function(pwm, alphabet = "DNA") {
 #'
 #' @describeIn pwm-class Shows the position weight matrix.
 #'
+#' @export
+#'
 setMethod("show", signature(object = "pwm"), function(object) {
     print(round(object@pwm, 4))
 })
@@ -77,6 +79,8 @@ setMethod("show", signature(object = "pwm"), function(object) {
 #'
 #' @describeIn pwm-class Prints the summary information about position weight
 #'   matrix.
+#'  
+#' @export
 #'
 setMethod("summary", signature(object = "pwm"), function(object, ...) {
     cat("Position weight matrix:\n")
@@ -92,6 +96,8 @@ setMethod("summary", signature(object = "pwm"), function(object, ...) {
 #' @param ... additional parameters for `plot` function
 #'
 #' @describeIn pwm-class Plots the sequence logo of the position weight matrix.
+#' 
+#' @export
 #'
 setMethod("plot", signature(x = "pwm"), function(x, y = "missing", ...) {
     seqLogo(x)
