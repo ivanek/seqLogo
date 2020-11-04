@@ -15,9 +15,9 @@
 
 |                     | Bioc ([release](https://bioconductor.org/packages/3.12/bioc/html/seqLogo.html))                                                                                              |
 |:--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| OS                  | [![Platforms](https://bioconductor.org/shields/availability/3.12/seqLogo.svg)](https://bioconductor.org/checkResults/3.12/bioc-LATEST/seqLogo/)                           | 
-| Bioc Last Update    | [![Bioconductor-release Last Commit](https://bioconductor.org/shields/lastcommit/3.12/bioc/seqLogo.svg)](https://bioconductor.org/checkResults/3.12/bioc-LATEST/seqLogo/) | 
-| Bioc Status         | [![Bioconductor-release Build Status](https://bioconductor.org/shields/build/3.12/bioc/seqLogo.svg)](https://bioconductor.org/checkResults/3.12/bioc-LATEST/seqLogo)      | 
+| OS                  | [![Platforms](https://bioconductor.org/shields/availability/release/seqLogo.svg)](https://bioconductor.org/checkResults/3.12/bioc-LATEST/seqLogo/)                           | 
+| Bioc Last Update    | [![Bioconductor-release Last Commit](https://bioconductor.org/shields/lastcommit/release/bioc/seqLogo.svg)](https://bioconductor.org/checkResults/3.12/bioc-LATEST/seqLogo/) | 
+| Bioc Status         | [![Bioconductor-release Build Status](https://bioconductor.org/shields/build/release/bioc/seqLogo.svg)](https://bioconductor.org/checkResults/3.12/bioc-LATEST/seqLogo)      | 
 | GitHub Last Commit  | [![GitHub last commit (Bioconductor-release)](https://img.shields.io/github/last-commit/ivanek/seqLogo/RELEASE_3_12)](https://github.com/ivanek/seqLogo/tree/RELEASE_3_12)      | 
 | GitHub Actions      | [![R build status](https://github.com/ivanek/seqLogo/workflows/R-CMD-check-bioc/badge.svg?branch=RELEASE_3_12)](https://github.com/ivanek/seqLogo/actions)                      | 
 | Coverage            | [![Codecov.io (Bioconductor-release)](https://codecov.io/github/ivanek/seqLogo/coverage.svg?branch=RELEASE_3_12)](https://codecov.io/gh/ivanek/seqLogo/branch/RELEASE_3_12)     |
