@@ -35,7 +35,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">seqLogo</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.59.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.61.0</span>
       </span>
     </div>
 
@@ -50,7 +50,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/ivanek/seqLogo/">
+  <a href="https://github.com/ivanek/seqLogo/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -69,12 +69,13 @@
   <div class="contents col-md-9">
 
 <p><img src="articles/seqLogo-logo.png" align="right" alt="" width="120"></p>
-<div id="seqlogo---plotting-the-position-weight-matrix-of-a-dnarna-sequence-motif-as-a-sequence-logo" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#seqlogo---plotting-the-position-weight-matrix-of-a-dnarna-sequence-motif-as-a-sequence-logo" class="anchor" aria-hidden="true"></a><em>seqLogo</em> - Plotting the position weight matrix of a DNA/RNA sequence motif as a sequence logo</h1></div>
-<div id="software-status" class="section level2">
-<h2 class="hasAnchor">
-<a href="#software-status" class="anchor" aria-hidden="true"></a>Software status</h2>
+<div class="section level1">
+<div class="page-header"><h1 id="seqlogo---plotting-the-position-weight-matrix-of-a-dnarna-sequence-motif-as-a-sequence-logo">
+<em>seqLogo</em> - Plotting the position weight matrix of a DNA/RNA sequence motif as a sequence logo<a class="anchor" aria-label="anchor" href="#seqlogo---plotting-the-position-weight-matrix-of-a-dnarna-sequence-motif-as-a-sequence-logo"></a>
+</h1></div>
+<div class="section level2">
+<h2 id="software-status">Software status<a class="anchor" aria-label="anchor" href="#software-status"></a>
+</h2>
 <!-- badges: start -->
 
 <p> </p>
@@ -123,53 +124,53 @@
 </tbody>
 </table>
 </div>
-<div id="authors" class="section level2">
-<h2 class="hasAnchor">
-<a href="#authors" class="anchor" aria-hidden="true"></a>Authors</h2>
+<div class="section level2">
+<h2 id="authors">Authors<a class="anchor" aria-label="anchor" href="#authors"></a>
+</h2>
 <ul>
 <li>Oliver Bembom</li>
 <li>Robert Ivanek</li>
 </ul>
 </div>
-<div id="overview" class="section level2">
-<h2 class="hasAnchor">
-<a href="#overview" class="anchor" aria-hidden="true"></a>Overview</h2>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
 <p>seqLogo takes the position weight matrix of a DNA sequence motif and plots the corresponding sequence logo as introduced by Schneider and Stephens (1990).</p>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h2>
-<div id="release-version" class="section level4">
-<h4 class="hasAnchor">
-<a href="#release-version" class="anchor" aria-hidden="true"></a>Release version</h4>
-<pre><code>if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("seqLogo", version = "release")</code></pre>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<div class="section level4">
+<h4 id="release-version">Release version<a class="anchor" aria-label="anchor" href="#release-version"></a>
+</h4>
+<pre><code><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"seqLogo"</span>, version <span class="op">=</span> <span class="st">"release"</span><span class="op">)</span></code></pre>
 </div>
-<div id="developmental-version" class="section level4">
-<h4 class="hasAnchor">
-<a href="#developmental-version" class="anchor" aria-hidden="true"></a>Developmental version</h4>
-<pre><code>if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("seqLogo", version = "devel")</code></pre>
+<div class="section level4">
+<h4 id="developmental-version">Developmental version<a class="anchor" aria-label="anchor" href="#developmental-version"></a>
+</h4>
+<pre><code><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"seqLogo"</span>, version <span class="op">=</span> <span class="st">"devel"</span><span class="op">)</span></code></pre>
 </div>
-<div id="github" class="section level4">
-<h4 class="hasAnchor">
-<a href="#github" class="anchor" aria-hidden="true"></a>Github</h4>
-<pre><code>if (!requireNamespace("remotes", quietly = TRUE))
-    install.packages("remotes")
-remotes::install_github("ivanek/seqLogo")</code></pre>
+<div class="section level4">
+<h4 id="github">Github<a class="anchor" aria-label="anchor" href="#github"></a>
+</h4>
+<pre><code><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"remotes"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ivanek/seqLogo"</span><span class="op">)</span></code></pre>
 </div>
 </div>
-<div id="usage" class="section level2">
-<h2 class="hasAnchor">
-<a href="#usage" class="anchor" aria-hidden="true"></a>Usage</h2>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
 <p>For detailed instructions check the package vignette (<a href="https://bioconductor.org/packages/release/bioc/vignettes/seqLogo/inst/doc/seqLogo.pdf" class="external-link">release</a> or <a href="https://bioconductor.org/packages/devel/bioc/vignettes/seqLogo/inst/doc/seqLogo.html" class="external-link">developmental</a> version). Or the GitHub.io <a href="https://ivanek.github.io/seqLogo/" class="external-link">page</a>.</p>
 </div>
-<div id="citation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#citation" class="anchor" aria-hidden="true"></a>Citation</h2>
-<pre><code>citation("seqLogo")</code></pre>
+<div class="section level2">
+<h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
+</h2>
+<pre><code><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"seqLogo"</span><span class="op">)</span></code></pre>
 <ul>
 <li>Oliver Bembom and Robert Ivanek (2020). seqLogo: Sequence logos for DNA sequence alignments.</li>
 </ul>
@@ -182,12 +183,9 @@ remotes::install_github("ivanek/seqLogo")</code></pre>
     <div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from BIOC at <br><a href="https://www.bioconductor.org/packages/seqLogo">https://​www.bioconductor.org/​packages/​seqLogo</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/ivanek/seqLogo/">https://​github.com/​ivanek/​seqLogo/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/ivanek/seqLogo/issues">https://​github.com/​ivanek/​seqLogo/​issues</a>
-</li>
+<li><a href="https://www.bioconductor.org/packages/seqLogo" class="external-link">View on Bioconductor</a></li>
+<li><a href="https://github.com/ivanek/seqLogo/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/ivanek/seqLogo/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -203,7 +201,7 @@ remotes::install_github("ivanek/seqLogo")</code></pre>
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Oliver Bembom <br><small class="roles"> Author </small>  </li>
-<li>Robert Ivanek <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-8403-056X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Robert Ivanek <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-8403-056X" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
@@ -229,7 +227,7 @@ remotes::install_github("ivanek/seqLogo")</code></pre>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
 </div>
 
       </footer>
