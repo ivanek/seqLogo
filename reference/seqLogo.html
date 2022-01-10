@@ -18,7 +18,7 @@ a sequence motif and plots the corresponding sequence logo."><!-- mathjax --><sc
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">seqLogo</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.61.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.61.1</span>
       </span>
     </div>
 
@@ -54,10 +54,11 @@ a sequence motif and plots the corresponding sequence logo."><!-- mathjax --><sc
 a sequence motif and plots the corresponding sequence logo.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">seqLogo</span><span class="op">(</span><span class="va">pwm</span>, ic.scale<span class="op">=</span><span class="cn">TRUE</span>, xaxis<span class="op">=</span><span class="cn">TRUE</span>, yaxis<span class="op">=</span><span class="cn">TRUE</span>, xfontsize<span class="op">=</span><span class="fl">15</span>, yfontsize<span class="op">=</span><span class="fl">15</span>,
+    <div id="ref-usage">
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">seqLogo</span><span class="op">(</span><span class="va">pwm</span>, ic.scale<span class="op">=</span><span class="cn">TRUE</span>, xaxis<span class="op">=</span><span class="cn">TRUE</span>, yaxis<span class="op">=</span><span class="cn">TRUE</span>, xfontsize<span class="op">=</span><span class="fl">15</span>, yfontsize<span class="op">=</span><span class="fl">15</span>,
         fill<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>A<span class="op">=</span><span class="st">'#61D04F'</span>, C<span class="op">=</span><span class="st">'#2297E6'</span>, G<span class="op">=</span><span class="st">'#F5C710'</span>, T<span class="op">=</span><span class="st">'#DF536B'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    </div>
 
-    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>pwm</dt>
@@ -83,11 +84,10 @@ a sequence motif and plots the corresponding sequence logo.</p>
     <h2>Author</h2>
     <p>Oliver Bembom</p>
     </div>
-    </div>
 
-    <div id="examples">
+    <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">mFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/pwm1"</span>, package <span class="op">=</span> <span class="st">"seqLogo"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">mFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/pwm1"</span>, package <span class="op">=</span> <span class="st">"seqLogo"</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.table</a></span><span class="op">(</span><span class="va">mFile</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="makePWM.html">makePWM</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">seqLogo</span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span>
@@ -106,7 +106,7 @@ a sequence motif and plots the corresponding sequence logo.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
 </div>
 
       </footer></div>
