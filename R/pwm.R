@@ -51,7 +51,6 @@ makePWM <- function(pwm, alphabet = "DNA") {
         )
     }
     if (any(abs(1 - apply(pwm, 2, sum)) > 0.01)) {
-        print(apply(pwm, 2, sum))
         warning("Columns of PWM must add up to 1.0")
     }
 

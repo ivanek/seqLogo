@@ -1,6 +1,6 @@
 Package: seqLogo
 Title: Sequence logos for DNA sequence alignments
-Version: 1.61.0
+Version: 1.61.1
 Authors@R: 
     c(person(given="Oliver", family="Bembom", 
              role = c("aut"), email = "oliver.bembom@gmail.com"),
@@ -13,11 +13,12 @@ Description: seqLogo takes the position weight matrix of a DNA sequence
 LazyLoad: yes
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.2
 Imports: 
     stats4, 
     grDevices
-Depends: 
+Depends:
+    R (>= 4.2),
     methods, 
     grid
 Suggests: 
