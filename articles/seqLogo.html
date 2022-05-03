@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">seqLogo</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.61.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.63.0</span>
       </span>
     </div>
 
@@ -67,11 +67,16 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Sequence logos for DNA sequence alignments</h1>
-                        <h4 data-toc-skip class="author">Oliver Bembom</h4>
+                        <h4 data-toc-skip class="author">Oliver
+Bembom</h4>
             <address class="author_afil">
-      Division of Biostatistics, University of California, Berkeley<br><h4 data-toc-skip class="author">Robert Ivánek</h4>
+      Division of Biostatistics, University of California,
+Berkeley<br><h4 data-toc-skip class="author">Robert
+Ivánek</h4>
             <address class="author_afil">
-      Department of Biomedicine, University of Basel, Basel, SwitzerlandSwiss Institute of Bioinformatics, Basel, Switzerland<br><a class="author_email" href="mailto:#"></a><a href="mailto:robert.ivanek@unibas.ch" class="email">robert.ivanek@unibas.ch</a>
+      Department of Biomedicine, University of Basel, Basel,
+SwitzerlandSwiss Institute of Bioinformatics, Basel,
+Switzerland<br><a class="author_email" href="mailto:#"></a><a href="mailto:robert.ivanek@unibas.ch" class="email">robert.ivanek@unibas.ch</a>
       </address>
                   
       
@@ -84,26 +89,59 @@
     
     
 <p><strong>Last edited</strong>: 08 May 2020</p>
-<div class="section level1">
-<h1 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h1>
-<p>An alignment of DNA or amino acid sequences is commonly represented in the form of a position weight matrix (PWM), a <span class="math inline">\(J \times W\)</span> matrix in which position <span class="math inline">\((j,w)\)</span> gives the probability of observing nucleotide <span class="math inline">\(j\)</span> in position <span class="math inline">\(w\)</span> of an alignment of length <span class="math inline">\(W\)</span>. Here <span class="math inline">\(J\)</span> denotes the number of letters in the alphabet from which the sequences were derived. An important summary measure of a given position weight matrix is its information content profile <span class="citation">(Schneider et al. 1986)</span>. The information content at position <span class="math inline">\(w\)</span> of the motif is given by</p>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<p>An alignment of DNA or amino acid sequences is commonly represented
+in the form of a position weight matrix (PWM), a <span class="math inline">\(J \times W\)</span> matrix in which position <span class="math inline">\((j,w)\)</span> gives the probability of observing
+nucleotide <span class="math inline">\(j\)</span> in position <span class="math inline">\(w\)</span> of an alignment of length <span class="math inline">\(W\)</span>. Here <span class="math inline">\(J\)</span> denotes the number of letters in the
+alphabet from which the sequences were derived. An important summary
+measure of a given position weight matrix is its information content
+profile <span class="citation">(Schneider et al. 1986)</span>. The
+information content at position <span class="math inline">\(w\)</span>
+of the motif is given by</p>
 <p><span class="math display">\[
-IC(w) = \log_2(J) + \sum_{j=1}^J p_{wj}\log_2(p_{wj}) = \log_2(J) - entropy(w).
+IC(w) = \log_2(J) + \sum_{j=1}^J p_{wj}\log_2(p_{wj}) = \log_2(J) -
+entropy(w).
 \]</span></p>
-<p>The information content is measured in bits and, in the case of DNA sequences, ranges from 0 to 2 bits. A position in the motif at which all nucleotides occur with equal probability has an information content of 0 bits, while a position at which only a single nucleotide can occur has an information content of 2 bits. The information content at a given position can therefore be thought of as giving a measure of the tolerance for substitutions in that position: Positions that are highly conserved and thus have a low tolerance for substitutions correspond to high information content, while positions with a high tolerance for substitutions correspond to low information content.</p>
-<p>Sequence logos are a graphical representation of sequence alignments developed by <span class="citation">(Schneider and Stephens 1990)</span>. Each logo consists of stacks of symbols, one stack for each position in the sequence. The overall height of the stack is proportional to the information content at that position, while the height of symbols within the stack indicates the relative frequency of each amino or nucleic acid at that position. In general, a sequence logo provides a richer and more precise description of, for example, a binding site, than would a consensus sequence.</p>
+<p>The information content is measured in bits and, in the case of DNA
+sequences, ranges from 0 to 2 bits. A position in the motif at which all
+nucleotides occur with equal probability has an information content of 0
+bits, while a position at which only a single nucleotide can occur has
+an information content of 2 bits. The information content at a given
+position can therefore be thought of as giving a measure of the
+tolerance for substitutions in that position: Positions that are highly
+conserved and thus have a low tolerance for substitutions correspond to
+high information content, while positions with a high tolerance for
+substitutions correspond to low information content.</p>
+<p>Sequence logos are a graphical representation of sequence alignments
+developed by <span class="citation">(Schneider and Stephens
+1990)</span>. Each logo consists of stacks of symbols, one stack for
+each position in the sequence. The overall height of the stack is
+proportional to the information content at that position, while the
+height of symbols within the stack indicates the relative frequency of
+each amino or nucleic acid at that position. In general, a sequence logo
+provides a richer and more precise description of, for example, a
+binding site, than would a consensus sequence.</p>
 </div>
-<div class="section level1">
-<h1 id="software-implementation">Software implementation<a class="anchor" aria-label="anchor" href="#software-implementation"></a>
-</h1>
-<p>The <em><a href="https://bioconductor.org/packages/3.15/seqLogo" class="external-link">seqLogo</a></em> package provides an R implementation for plotting such sequence logos for alignments consisting of DNA sequences. Before being able to access this functionality, the user is required to load the package using the <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library()</a></code> command:</p>
+<div class="section level2">
+<h2 id="software-implementation">Software implementation<a class="anchor" aria-label="anchor" href="#software-implementation"></a>
+</h2>
+<p>The <em><a href="https://bioconductor.org/packages/3.16/seqLogo" class="external-link">seqLogo</a></em>
+package provides an R implementation for plotting such sequence logos
+for alignments consisting of DNA sequences. Before being able to access
+this functionality, the user is required to load the package using the
+<code><a href="https://rdrr.io/r/base/library.html" class="external-link">library()</a></code> command:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">seqLogo</span><span class="op">)</span> </code></pre></div>
-<div class="section level2">
-<h2 id="the-pwm-class">The <code>pwm-class</code><a class="anchor" aria-label="anchor" href="#the-pwm-class"></a>
-</h2>
-<p>The <em><a href="https://bioconductor.org/packages/3.15/seqLogo" class="external-link">seqLogo</a></em> package defines the class <code>pwm</code> which can be used to represent position weight matrices. An instance of this class can be constructed from a simple matrix or a data frame using the function <code><a href="../reference/makePWM.html">makePWM()</a></code>:</p>
+<div class="section level3">
+<h3 id="the-pwm-class">The <code>pwm-class</code><a class="anchor" aria-label="anchor" href="#the-pwm-class"></a>
+</h3>
+<p>The <em><a href="https://bioconductor.org/packages/3.16/seqLogo" class="external-link">seqLogo</a></em>
+package defines the class <code>pwm</code> which can be used to
+represent position weight matrices. An instance of this class can be
+constructed from a simple matrix or a data frame using the function
+<code><a href="../reference/makePWM.html">makePWM()</a></code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/pwm1"</span>, package<span class="op">=</span><span class="st">"seqLogo"</span><span class="op">)</span>
 <span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.table</a></span><span class="op">(</span><span class="va">mFile</span><span class="op">)</span>
@@ -114,7 +152,10 @@ IC(w) = \log_2(J) + \sum_{j=1}^J p_{wj}\log_2(p_{wj}) = \log_2(J) - entropy(w).
 <span class="co">## 3 0.2 0.8 0.2 0.4 0.3 0.8 0.2 0.8</span>
 <span class="co">## 4 0.0 0.0 0.0 0.0 0.1 0.0 0.0 0.0</span>
 <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/makePWM.html">makePWM</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span></code></pre></div>
-<p><code><a href="../reference/makePWM.html">makePWM()</a></code> checks that all column probabilities add up to 1.0 and also obtains the information content profile and consensus sequence for the position weight matrix. These can then be accessed through the corresponding slots of the created object:</p>
+<p><code><a href="../reference/makePWM.html">makePWM()</a></code> checks that all column probabilities add up to
+1.0 and also obtains the information content profile and consensus
+sequence for the position weight matrix. These can then be accessed
+through the corresponding slots of the created object:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/methods/slot.html" class="external-link">slotNames</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span>
 <span class="co">## [1] "pwm"       "width"     "ic"        "alphabet"  "consensus"</span>
@@ -130,22 +171,33 @@ IC(w) = \log_2(J) + \sum_{j=1}^J p_{wj}\log_2(p_{wj}) = \log_2(J) - entropy(w).
 <span class="fu"><a href="../reference/pwm-class.html">consensus</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span>
 <span class="co">## [1] "CGCGCGCG"</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="plotting-sequence-logos">Plotting sequence logos<a class="anchor" aria-label="anchor" href="#plotting-sequence-logos"></a>
-</h2>
-<p>The <code><a href="../reference/seqLogo.html">seqLogo()</a></code> function plots sequence logos.</p>
 <div class="section level3">
-<h3 id="input">Input<a class="anchor" aria-label="anchor" href="#input"></a>
+<h3 id="plotting-sequence-logos">Plotting sequence logos<a class="anchor" aria-label="anchor" href="#plotting-sequence-logos"></a>
 </h3>
+<p>The <code><a href="../reference/seqLogo.html">seqLogo()</a></code> function plots sequence logos.</p>
+<div class="section level4">
+<h4 id="input">Input<a class="anchor" aria-label="anchor" href="#input"></a>
+</h4>
 <ol style="list-style-type: decimal">
-<li><p>The position weight matrix for which the sequence logo is to be plotted, <code>pwm</code>. This may be either an instance of class <code>pwm</code>, as defined by the package <em><a href="https://bioconductor.org/packages/3.15/seqLogo" class="external-link">seqLogo</a></em>, a <code>matrix</code>, or a <code>data.frame</code>.</p></li>
-<li><p>A <code>logical</code> <code>ic.scale</code> indicating whether the height of each column is to be proportional to its information content, as originally proposed by <span class="citation">(Schneider et al. 1986)</span>. If <code>ic.scale=FALSE</code>, all columns have the same height.</p></li>
+<li><p>The position weight matrix for which the sequence logo is to be
+plotted, <code>pwm</code>. This may be either an instance of class
+<code>pwm</code>, as defined by the package <em><a href="https://bioconductor.org/packages/3.16/seqLogo" class="external-link">seqLogo</a></em>,
+a <code>matrix</code>, or a <code>data.frame</code>.</p></li>
+<li><p>A <code>logical</code> <code>ic.scale</code> indicating whether
+the height of each column is to be proportional to its information
+content, as originally proposed by <span class="citation">(Schneider et
+al. 1986)</span>. If <code>ic.scale=FALSE</code>, all columns have the
+same height.</p></li>
 </ol>
 </div>
-<div class="section level3">
-<h3 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
-</h3>
-<p>The call <code>seqLogo(p)</code> produces the sequence logo shown in figure @ref(seqlogo1). Alternatively, we can use <code>seqLogo(p, ic.scale=FALSE)</code> to obtain the sequence logo shown in figure @ref(seqlogo2) in which all columns have the same height.</p>
+<div class="section level4">
+<h4 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h4>
+<p>The call <code>seqLogo(p)</code> produces the sequence logo shown in
+figure @ref(seqlogo1). Alternatively, we can use
+<code>seqLogo(p, ic.scale=FALSE)</code> to obtain the sequence logo
+shown in figure @ref(seqlogo2) in which all columns have the same
+height.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/seqLogo.html">seqLogo</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></code></pre></div>
 <div class="figure">
@@ -160,7 +212,9 @@ Sequence logo with column heights proportional to information content.
 Sequence logo with uniform column heights.
 </p>
 </div>
-<p>It is also possible to change the default colors by providing a named character vector as a <code>fill</code> argument <code>seqLogo</code> function.</p>
+<p>It is also possible to change the default colors by providing a named
+character vector as a <code>fill</code> argument <code>seqLogo</code>
+function.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/seqLogo.html">seqLogo</a></span><span class="op">(</span><span class="va">p</span>, fill<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>A<span class="op">=</span><span class="st">"#4daf4a"</span>, C<span class="op">=</span><span class="st">"#377eb8"</span>, G<span class="op">=</span><span class="st">"#ffd92f"</span>, T<span class="op">=</span><span class="st">"#e41a1c"</span><span class="op">)</span>,
         ic.scale<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
@@ -169,7 +223,11 @@ Sequence logo with uniform column heights.
 Sequence logo with user specified colors.
 </p>
 </div>
-<p>The RNA logos are supported as well. In this particular case, the <code>seqLogo</code> will either accept <code>fill</code> colors specified for <code>c("A", "C", "G", "U")</code> letters or <code>c("A", "C", "G", "T")</code> and uses the color specified in element “T” for letter “U.”</p>
+<p>The RNA logos are supported as well. In this particular case, the
+<code>seqLogo</code> will either accept <code>fill</code> colors
+specified for <code>c("A", "C", "G", "U")</code> letters or
+<code>c("A", "C", "G", "T")</code> and uses the color specified in
+element “T” for letter “U”.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/makePWM.html">makePWM</a></span><span class="op">(</span><span class="va">m</span>, alphabet<span class="op">=</span><span class="st">"RNA"</span><span class="op">)</span>
 <span class="fu"><a href="../reference/seqLogo.html">seqLogo</a></span><span class="op">(</span><span class="va">r</span>, ic.scale<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
@@ -180,26 +238,37 @@ RNA Sequence logo.
 </div>
 </div>
 </div>
+<div class="section level3">
+<h3 id="software-design">Software Design<a class="anchor" aria-label="anchor" href="#software-design"></a>
+</h3>
+<p>The following features of the programming approach employed in <em><a href="https://bioconductor.org/packages/3.16/seqLogo" class="external-link">seqLogo</a></em>
+may be of interest to users.</p>
+<p><strong>Class/method object-oriented programming</strong>. Like many
+other Bioconductor packages, <em><a href="https://bioconductor.org/packages/3.16/seqLogo" class="external-link">seqLogo</a></em>
+has adopted the <em>S4 class/method objected-oriented programming
+approach</em> presented in <span class="citation">(Chambers
+1998)</span>. In particular, a new class, <code>pwm</code>, is defined
+to represent a position weight matrix. The plot method for this class is
+set to produce the sequence logo corresponding to this class.</p>
+<p><strong>Use of the <code>grid</code> package</strong>. The
+<code>grid</code> package is used to draw the sequence letters from
+graphical primitives. We note that this should make it easy to extend
+the package to amino acid sequences.</p>
+</div>
+</div>
 <div class="section level2">
-<h2 id="software-design">Software Design<a class="anchor" aria-label="anchor" href="#software-design"></a>
+<h2 id="sessioninfo">SessionInfo<a class="anchor" aria-label="anchor" href="#sessioninfo"></a>
 </h2>
-<p>The following features of the programming approach employed in <em><a href="https://bioconductor.org/packages/3.15/seqLogo" class="external-link">seqLogo</a></em> may be of interest to users.</p>
-<p><strong>Class/method object-oriented programming</strong>. Like many other Bioconductor packages, <em><a href="https://bioconductor.org/packages/3.15/seqLogo" class="external-link">seqLogo</a></em> has adopted the <em>S4 class/method objected-oriented programming approach</em> presented in <span class="citation">(Chambers 1998)</span>. In particular, a new class, <code>pwm</code>, is defined to represent a position weight matrix. The plot method for this class is set to produce the sequence logo corresponding to this class.</p>
-<p><strong>Use of the <code>grid</code> package</strong>. The <code>grid</code> package is used to draw the sequence letters from graphical primitives. We note that this should make it easy to extend the package to amino acid sequences.</p>
-</div>
-</div>
-<div class="section level1">
-<h1 id="sessioninfo">SessionInfo<a class="anchor" aria-label="anchor" href="#sessioninfo"></a>
-</h1>
 <p>The following is the session info that generated this vignette:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">## R Under development (unstable) (2022-01-07 r81454)</span>
+<span class="co">## R version 4.2.0 (2022-04-22)</span>
 <span class="co">## Platform: x86_64-pc-linux-gnu (64-bit)</span>
-<span class="co">## Running under: Ubuntu 20.04.3 LTS</span>
+<span class="co">## Running under: Ubuntu 20.04.4 LTS</span>
 <span class="co">## </span>
 <span class="co">## Matrix products: default</span>
-<span class="co">## BLAS/LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.8.so</span>
+<span class="co">## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3</span>
+<span class="co">## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/liblapack.so.3</span>
 <span class="co">## </span>
 <span class="co">## locale:</span>
 <span class="co">##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              </span>
@@ -214,34 +283,40 @@ RNA Sequence logo.
 <span class="co">## [8] base     </span>
 <span class="co">## </span>
 <span class="co">## other attached packages:</span>
-<span class="co">## [1] seqLogo_1.61.1   BiocStyle_2.23.1</span>
+<span class="co">## [1] seqLogo_1.63.0   BiocStyle_2.25.0</span>
 <span class="co">## </span>
 <span class="co">## loaded via a namespace (and not attached):</span>
-<span class="co">##  [1] knitr_1.37          magrittr_2.0.1      R6_2.5.1           </span>
-<span class="co">##  [4] ragg_1.2.1          rlang_0.4.12        fastmap_1.1.0      </span>
+<span class="co">##  [1] knitr_1.39          magrittr_2.0.3      R6_2.5.1           </span>
+<span class="co">##  [4] ragg_1.2.2          rlang_1.0.2         fastmap_1.1.0      </span>
 <span class="co">##  [7] highr_0.9           stringr_1.4.0       tools_4.2.0        </span>
-<span class="co">## [10] xfun_0.29           jquerylib_0.1.4     systemfonts_1.0.3  </span>
-<span class="co">## [13] htmltools_0.5.2     yaml_2.2.1          digest_0.6.29      </span>
-<span class="co">## [16] rprojroot_2.0.2     pkgdown_2.0.1.9000  crayon_1.4.2       </span>
-<span class="co">## [19] bookdown_0.24       textshaping_0.3.6   BiocManager_1.30.16</span>
-<span class="co">## [22] purrr_0.3.4         sass_0.4.0          fs_1.5.2           </span>
-<span class="co">## [25] memoise_2.0.1       cachem_1.0.6        evaluate_0.14      </span>
-<span class="co">## [28] rmarkdown_2.11      stringi_1.7.6       compiler_4.2.0     </span>
-<span class="co">## [31] bslib_0.3.1         desc_1.4.0          stats4_4.2.0       </span>
-<span class="co">## [34] jsonlite_1.7.2</span></code></pre></div>
+<span class="co">## [10] xfun_0.30           cli_3.3.0           jquerylib_0.1.4    </span>
+<span class="co">## [13] systemfonts_1.0.4   htmltools_0.5.2     yaml_2.3.5         </span>
+<span class="co">## [16] digest_0.6.29       rprojroot_2.0.3     pkgdown_2.0.3.9000 </span>
+<span class="co">## [19] bookdown_0.26       textshaping_0.3.6   BiocManager_1.30.17</span>
+<span class="co">## [22] purrr_0.3.4         sass_0.4.1          fs_1.5.2           </span>
+<span class="co">## [25] memoise_2.0.1       cachem_1.0.6        evaluate_0.15      </span>
+<span class="co">## [28] rmarkdown_2.14      stringi_1.7.6       compiler_4.2.0     </span>
+<span class="co">## [31] bslib_0.3.1         desc_1.4.1          stats4_4.2.0       </span>
+<span class="co">## [34] jsonlite_1.8.0</span></code></pre></div>
 </div>
-<div class="section level1 unnumbered">
-<h1 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
-</h1>
+<div class="section level2">
+<h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Chambers1998" class="csl-entry">
-Chambers, John M. 1998. <em>Programming with Data: A Guide to the s Language</em>. Springer.
+Chambers, John M. 1998. <em>Programming with Data: A Guide to the s
+Language</em>. Springer.
 </div>
 <div id="ref-Schneider1990" class="csl-entry">
-Schneider, Thomas D., and R.Michael Stephens. 1990. <span>“<span class="nocase">Sequence logos: a new way to display consensus sequences</span>.”</span> <em>Nucleic Acids Research</em> 18 (20): 6097–6100. <a href="https://doi.org/10.1093/nar/18.20.6097" class="external-link">https://doi.org/10.1093/nar/18.20.6097</a>.
+Schneider, Thomas D., and R.Michael Stephens. 1990. <span>“<span class="nocase">Sequence logos: a new way to display consensus
+sequences</span>.”</span> <em>Nucleic Acids Research</em> 18 (20):
+6097–6100. <a href="https://doi.org/10.1093/nar/18.20.6097" class="external-link">https://doi.org/10.1093/nar/18.20.6097</a>.
 </div>
 <div id="ref-Schneider1986" class="csl-entry">
-Schneider, Thomas D., Gary D. Stormo, Larry Gold, and Andrzej Ehrenfeucht. 1986. <span>“Information Content of Binding Sites on Nucleotide Sequences.”</span> <em>Journal of Molecular Biology</em> 188 (3): 415–31. https://doi.org/<a href="https://doi.org/10.1016/0022-2836(86)90165-8" class="external-link">https://doi.org/10.1016/0022-2836(86)90165-8</a>.
+Schneider, Thomas D., Gary D. Stormo, Larry Gold, and Andrzej
+Ehrenfeucht. 1986. <span>“Information Content of Binding Sites on
+Nucleotide Sequences.”</span> <em>Journal of Molecular Biology</em> 188
+(3): 415–31. https://doi.org/<a href="https://doi.org/10.1016/0022-2836(86)90165-8" class="external-link">https://doi.org/10.1016/0022-2836(86)90165-8</a>.
 </div>
 </div>
 </div>
@@ -264,7 +339,7 @@ Schneider, Thomas D., Gary D. Stormo, Larry Gold, and Andrzej Ehrenfeucht. 1986.
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
 </div>
 
       </footer>
