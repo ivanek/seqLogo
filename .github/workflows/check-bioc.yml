@@ -250,6 +250,9 @@ jobs:
         if: github.ref == 'refs/heads/master' && env.run_pkgdown == 'true' && runner.os == 'Linux'
         run: R CMD INSTALL .
 
+      - name: work around permission issue (since Apr 2022)
+        run: git config --global --add safe.directory /__w/seqLogo/seqLogo
+
       - name: Deploy package
         if: github.ref == 'refs/heads/master' && env.run_pkgdown == 'true' && runner.os == 'Linux'
         run: |
