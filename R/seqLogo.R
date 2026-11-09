@@ -117,8 +117,8 @@ letterT <- function(x.pos, y.pos, ht, wt, fill = "#DF536B", id = NULL) {
 #' @keywords internal
 #' @noRd
 letterU <- function(x.pos, y.pos, ht, wt, fill = "#DF536B", id = NULL) {
-    angle1 <- seq(pi / 2, pi, length = 100)
-    angle2 <- seq(pi, 1.5 * pi, length = 100)
+    angle1 <- seq(pi / 2, pi, length.out = 100)
+    angle2 <- seq(pi, 1.5 * pi, length.out = 100)
     x.l1 <- 0.5 + 0.5 * sin(angle1)
     y.l1 <- 0.5 + 0.5 * cos(angle1)
     x.l2 <- 0.5 + 0.5 * sin(angle2)
@@ -172,8 +172,8 @@ letterU <- function(x.pos, y.pos, ht, wt, fill = "#DF536B", id = NULL) {
 #' @keywords internal
 #' @noRd
 letterC <- function(x.pos, y.pos, ht, wt, fill = "#2297E6", id = NULL) {
-    angle1 <- seq(0.3 + pi / 2, pi, length = 100)
-    angle2 <- seq(pi, 1.5 * pi, length = 100)
+    angle1 <- seq(0.3 + pi / 2, pi, length.out = 100)
+    angle2 <- seq(pi, 1.5 * pi, length.out = 100)
     x.l1 <- 0.5 + 0.5 * sin(angle1)
     y.l1 <- 0.5 + 0.5 * cos(angle1)
     x.l2 <- 0.5 + 0.5 * sin(angle2)
@@ -233,8 +233,8 @@ letterC <- function(x.pos, y.pos, ht, wt, fill = "#2297E6", id = NULL) {
 #' @keywords internal
 #' @noRd
 letterG <- function(x.pos, y.pos, ht, wt, fill = "#F5C710", id = NULL) {
-    angle1 <- seq(0.3 + pi / 2, pi, length = 100)
-    angle2 <- seq(pi, 1.5 * pi, length = 100)
+    angle1 <- seq(0.3 + pi / 2, pi, length.out = 100)
+    angle2 <- seq(pi, 1.5 * pi, length.out = 100)
     x.l1 <- 0.5 + 0.5 * sin(angle1)
     y.l1 <- 0.5 + 0.5 * cos(angle1)
     x.l2 <- 0.5 + 0.5 * sin(angle2)
